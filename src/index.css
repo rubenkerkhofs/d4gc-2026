@@ -1,10 +1,96 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
-    color: #222;
+:root {
+    --bg-primary: #05080d;
+    --bg-secondary: #0a0f18;
+    --bg-tertiary: #0e131b;
+    --border: #1e2530;
+    --text-primary: #e8eaed;
+    --text-secondary: #a8b0bc;
+    --text-muted: #6b7280;
+    --text-dim: #4a5260;
+    --accent-blue: #4fb3d9;
+    --accent-orange: #f0a830;
+    --accent-red: #e85d5d;
+    --accent-green: #4caf7d;
+    --radius: 8px;
+    --radius-sm: 4px;
+}
+
+[data-theme="light"] {
+    --bg-primary: #f4f6f9;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #ffffff;
+    --border: #dfe3ea;
+    --text-primary: #1a2332;
+    --text-secondary: #4a5568;
+    --text-muted: #6b7280;
+    --text-dim: #9aa3b0;
+    --accent-blue: #2b8ab8;
+    --accent-orange: #d18b20;
+    --accent-red: #d14343;
+    --accent-green: #3a8a5f;
 }
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body, #root {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #root > div {
+        height: auto !important;
+        min-height: 100vh;
+    }
 }
